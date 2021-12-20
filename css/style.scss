@@ -1,0 +1,307 @@
+@use "./base/reset";
+@use "./base/variables" as *;
+@use "./base/fonts" as *;
+@use "./base/mixins" as *;
+
+::placeholder {
+  text-align: right;
+  @include font(20px, 18px, $grayish_cyan2);
+  margin-right: 8px;
+  display: flex;
+  font-weight: 400;
+}
+
+h1 {
+  @include font(22px, 0px, $dark_cyan);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 150px;
+  margin-bottom: 87px;
+}
+
+body {
+  background-color: $light_grayish_cyan;
+  max-width: 1440px;
+  max-height: 1020px;
+  width: 90%;
+  margin: 0 auto;
+  /*padding-top: 220px;
+  padding-left: 260px;
+  padding-right: 260px;*/
+}
+main {
+  background-color: $white;
+  max-height: 480px;
+  max-width: 920px;
+  border-radius: 20px;
+  margin: 0 auto;
+  padding: 30px;
+  gap: 50px;
+  display: flex;
+  width: 100%;
+  .left {
+    width: 50%;
+    padding: 20px;
+    position: relative;
+    h2 {
+      @include font(14px, 0px, $dark_cyan);
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    input {
+      outline: none;
+      border-width: 0px;
+      width: 380px;
+      background-color: $light_grayish_cyan2;
+      height: 45px;
+      padding-left: 35px;
+      padding-right: 15px;
+      @include font(14px, 0px, $grayish_cyan2);
+      font-weight: 700;
+    }
+    .svg1 {
+      position: absolute;
+      top: 48px;
+      left: 35px;
+    }
+    h3 {
+      @include font(14px, 0px, $dark_cyan);
+      margin-top: 45px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .containerbuttons {
+      max-width: 380px;
+      max-height: 110px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      flex: 1 1 380px;
+      gap: 15px;
+      margin-bottom: 45px;
+    }
+    .tipbutton {
+      height: 45px;
+      width: 115px;
+      @include font(18px, 0px, $white);
+      font-weight: 700;
+      border-radius: 4px;
+      border-width: 0;
+      background-color: $dark_cyan;
+      &:hover {
+        cursor: pointer;
+        color: $bright_cyan;
+      }
+      &__custom {
+        background-color: $light_grayish_cyan2;
+        height: 45px;
+        width: 115px;
+        @include font(18px, 0px, $dark_cyan);
+        font-weight: 700;
+        border-radius: 4px;
+        border-width: 0;
+        &:hover {
+          cursor: pointer;
+          color: $bright_cyan;
+        }
+      }
+    }
+    .svg2 {
+      position: absolute;
+      top: 325px;
+      left: 35px;
+    }
+  }
+  .right {
+    width: 50%;
+    background-color: $dark_cyan;
+    border-radius: 13px;
+    h4 {
+      @include font(15px, 15px, $white);
+      font-weight: 400;
+      position: relative;
+      padding: 20px;
+      margin-left: 20px;
+      margin-top: 30px;
+      &::before {
+        content: "/person";
+        position: absolute;
+        margin-top: 27px;
+        @include font(12px, 0px, $white);
+        opacity: 0.5;
+      }
+      &::after {
+        content: "$0.00";
+        @include font(35px, 0px, $bright_cyan);
+        position: absolute;
+        font-weight: 400;
+        display: flex;
+        right: 0;
+        margin-right: 40px;
+      }
+    }
+    h4:nth-child(2) {
+      margin-bottom: 135px;
+    }
+    .reset {
+      width: 333px;
+      height: 48px;
+      margin-left: 28px;
+      border-radius: 5px;
+      outline: none;
+      border-width: 0;
+      background-color: $light_grayish_cyan;
+      opacity: 0.3;
+      @include font(20px, 0px, $grayish_cyan2);
+      font-weight: 700;
+      text-transform: uppercase;
+      &:hover {
+        cursor: pointer;
+        color: $white;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  main .left {
+    width: 50%;
+    transition: all 200ms;
+    .containerbuttons {
+      margin-bottom: 105px;
+    }
+    input {
+      width: 300px;
+    }
+    .svg2 {
+      position: absolute;
+      top: 390px;
+      left: 35px;
+    }
+  }
+
+  main .right {
+    width: 50%;
+    transition: all 200ms;
+    .reset {
+      width: 240px;
+      transition: all 200ms;
+      margin-top: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 830px) {
+  main {
+    display: inline-block;
+    max-height: 1020px;
+    max-width: 920px;
+    .left {
+      width: 100%;
+      .svg2 {
+        position: absolute;
+        top: 385px;
+        left: 35px;
+      }
+    }
+    .right {
+      width: 90%;
+      h4 {
+        &::after {
+          margin-right: 80px;
+        }
+      }
+      .reset {
+        margin-bottom: 20px;
+        width: 333px;
+      }
+      h4:nth-child(2) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 527px) {
+  main {
+    .left {
+      width: 100%;
+      transition: all 200ms;
+      .svg2 {
+        position: absolute;
+        top: 390px;
+        left: 35px;
+        transition: all 200ms;
+      }
+    }
+    .right {
+      h4 {
+        &::after {
+          margin-right: 20px;
+          transition: all 200ms;
+        }
+      }
+      .reset {
+        margin-bottom: 20px;
+        width: 240px;
+        transition: all 200ms;
+      }
+    }
+  }
+}
+@media screen and (max-width: 527px) {
+  main {
+    .right {
+      h4 {
+        &::after {
+          margin-right: 20px;
+          transition: all 200ms;
+        }
+      }
+      .reset {
+        margin-bottom: 20px;
+        width: 180px;
+        transition: all 200ms;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 440px) {
+  main {
+    .left {
+      width: 100%;
+      .svg2 {
+        position: absolute;
+        top: 260px;
+        left: 35px;
+      }
+      .containerbuttons {
+        margin-bottom: 20px;
+      }
+      .tipbutton {
+        height: 25px;
+        width: 55px;
+        &__custom {
+          height: 25px;
+          width: 55px;
+        }
+      }
+      input {
+        width: 240px;
+      }
+    }
+    .right {
+      h4 {
+        &::after {
+          @include font(20px, 0px, $bright_cyan);
+        }
+      }
+
+      h4:nth-child(2) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
